@@ -1,0 +1,124 @@
+✅ R Project Environment Setup Guide
+
+This guide outlines the standard steps for initializing a clean, reproducible R environment using renv in any new project.
+
+📁 1. Create a New R Project
+
+In RStudio:
+
+Go to File > New Project > New Directory
+
+Select an appropriate folder name (e.g., COMID-QA)
+
+Save it inside your working directory or GitHub folder
+
+🛠️ 2. Initialize renv for Dependency Management
+
+In the R console, run:
+
+renv::init()
+
+This will:
+
+Create a private library for your project
+
+Generate a renv.lock file to track package versions
+
+Add a renv/ folder to manage environment settings
+
+📦 3. Install Required Packages
+
+Use either install.packages() or librarian::shelf():
+
+install.packages("tidyverse")
+
+or
+
+librarian::shelf(tidyverse, lubridate, here)
+
+These packages will be installed into your project-specific library.
+
+🔐 4. Snapshot the Environment
+
+Once your packages are installed, run:
+
+renv::snapshot()
+
+This updates the renv.lock file with the current state of your environment.
+
+🧪 5. Test Reproducibility (Optional)
+
+To simulate restoring on a new machine:
+
+Clone or open your project
+
+Run:
+
+renv::restore()
+
+This re-installs all packages listed in your renv.lock file.
+
+🔄 6. Updating the Environment
+
+If you need to install new packages later:
+
+renv::install("shiny")
+renv::snapshot()
+
+This updates the lock file with your new package.
+
+Use:
+
+renv::status()
+
+to check whether your environment and lock file are in sync.
+
+📁 7. GitHub Integration (Optional)
+
+When connecting your project to GitHub:
+
+Commit the renv.lock file
+
+Do NOT commit the local renv/library/
+
+Add to your .gitignore:
+
+.Rhistory
+.Rproj.user/
+renv/library/
+
+📄 8. Quarto Compatibility (Optional)
+
+If using Quarto documents:
+
+quarto::render("report.qmd")
+
+To add Quarto support explicitly:
+
+quarto::quarto_add()
+
+⚠️ Tips & Best Practices
+
+Always run renv::snapshot() after installing new packages
+
+If packages are missing, use renv::install("package")
+
+To re-activate the environment:
+
+renv::activate()
+
+Use here::here() for robust, portable file paths
+
+📃 Example Project File Structure
+
+COMID-QA/
+├── 2_analytical-engine/
+│   ├── renv_setup.md       ← this file
+│   ├── scripts/
+│   ├── data/
+│   ├── notebooks/
+│   ├── COMID-QA.Rproj
+│   ├── renv/
+│   └── renv.lock
+
+This setup ensures your project is portable, versioned, and reproducible across machines.

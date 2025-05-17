@@ -1,0 +1,15 @@
+HCDN-2009 Dataset Field Descriptions
+Source: https://water.usgs.gov/osw/hcdn-2009/
+
+- STATION_ID       : USGS gaging station ID number
+- STATION_NAME     : Name of the gage location
+- CLASS            : Classification (Ref = Reference)
+- AGGECOREGION     : Aggregated EPA Ecoregion
+- DRAIN_SQKM       : Contributing drainage area (square kilometers)
+- LAT_GAGE         : Latitude (decimal degrees)
+- LONG_GAGE        : Longitude (decimal degrees)
+- STATE            : Two-letter US state abbreviation
+- ACTIVE09         : Whether the gage was active as of 2009
+- FLOWYRS_1900_2009: Count of years with daily flow data from 1900–2009
+- FLOWYRS_1950_2009: Same, but from 1950–2009
+- FLOWYRS_1990_2009: Same, but from 1990–2009

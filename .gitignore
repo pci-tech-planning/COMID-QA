@@ -1,0 +1,37 @@
+# === Global Data Exclusions ===
+
+# Ignore all 'data/' folders anywhere in the repo
+**/data/
+
+# === Keep metadata and documentation ===
+!**/metadata/
+!**/metadata/**
+!**/README.txt
+!**/README.md
+!**/*.md
+!**/*.txt
+
+# === Ignore temporary and hidden files ===
+.Rhistory
+.Rproj.user/
+.RData
+.DS_Store
+Thumbs.db
+
+# === Ignore renv binary libraries (if using renv) ===
+renv/library/
+renv/python/
+
+# === Ignore output and temp files ===
+**/*.zip
+**/*.7z
+**/*.tar.gz
+**/*.RData
+**/*.csv
+!**/metadata/*.csv  # Allow metadata CSVs
+
+# === Logs and artifacts ===
+*.log
+*.aux
+*.out
+*.toc

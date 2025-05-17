@@ -1,0 +1,98 @@
+📑 Field Descriptions: NHDPlusV2 Region 17 Flowlines
+
+This file documents the expected attribute fields found in the NHDFlowline.shp and associated .dbf files. It is intended to guide QA and enrichments during COMID matching workflows.
+
+⚠️ NOTE: These field descriptions are based on standard NHDPlusV2 schema. Please inspect the actual data and update descriptions as needed.
+
+Field Name
+
+Description
+
+COMID
+
+Unique identifier for each stream segment
+
+ReachCode
+
+Hydrologic reach code (HUC-based)
+
+StreamLevel
+
+Network hierarchy level
+
+StreamOrder
+
+Stream order (Strahler)
+
+FType
+
+Feature type (e.g., stream, canal, pipeline)
+
+FCode
+
+Feature code (numeric code for FType)
+
+LengthKM
+
+Length of the flowline segment in kilometers
+
+FromNode
+
+Network connectivity: upstream node ID
+
+ToNode
+
+Network connectivity: downstream node ID
+
+Hydroseq
+
+Sequence number used for routing
+
+LevelPathI
+
+Identifies individual stream paths
+
+TerminalPa
+
+Indicates whether a segment terminates a path
+
+TotDASqKM
+
+Total contributing drainage area (square kilometers)
+
+Slope
+
+Segment slope
+
+AreaSqKM
+
+Local catchment area for segment
+
+Enabled
+
+Indicates if flowline is active in routing (1 = active, 0 = disabled)
+
+GNIS_ID
+
+Geographic Names Information System ID
+
+GNIS_Name
+
+Stream name
+
+WBArea_COMID
+
+COMID of associated waterbody if applicable
+
+🔍 To Update This File
+
+After unzipping and reading the data:
+
+library(sf)
+names(st_read("NHDFlowline.shp"))
+
+Use this to compare and correct the fields above. Add any additional fields found in your version of the dataset.
+
+📌 This file supports the match_comid() QA process for Oregon HCDN stations.
+
+Last reviewed: [Insert date here]
